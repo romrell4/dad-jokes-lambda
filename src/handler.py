@@ -6,10 +6,9 @@ def handle(event, context):
     print(event)
 
     try:
-        if event["session"]["application"]["applicationId"] == "amzn1.ask.skill.612376ef-e96a-4153-995d-3bffe90cf130":
-            return handle_alexa()
-        raise KeyError
-    except KeyError:
+        assert event["session"]["application"]["applicationId"] == "amzn1.ask.skill.612376ef-e96a-4153-995d-3bffe90cf130"
+        return handle_alexa()
+    except (KeyError, AssertionError):
         return handle_slack()
 
 def handle_alexa():

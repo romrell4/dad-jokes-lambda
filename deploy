@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd src
 rm lambda.zip
-zip -r lambda.zip src/*
+zip -r lambda.zip *
 aws lambda update-function-code --function-name DadJokes --zip-file fileb://lambda.zip --profile personal
+cd - > /dev/null
