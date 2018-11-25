@@ -12,7 +12,16 @@ def handle(event, context):
         return handle_slack()
 
 def handle_alexa():
-    raise NotImplementedError("Haven't implemented Alexa yet...")
+    return {
+        "version": "1.0",
+        "response": {
+            "outputSpeech": {
+                "type": "PlainText",
+                "text": random.choice(jokes)
+            },
+            "shouldEndSession": True
+        },
+    }
 
 def handle_slack():
     return {

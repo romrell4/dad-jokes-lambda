@@ -10,4 +10,3 @@ class TestCase(unittest.TestCase):
     def test_alexa(self):
         response = handler.handle(alexa_event.event, None)
         self.assertIsNotNone(response)
-        print(response)
